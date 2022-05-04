@@ -1,15 +1,14 @@
 {
     "disableAutoUpdate": false,
-    "name": "Auto Pet",
-    "author": "PsykoDev",
-    "description": "Automatically summons and feeds your pet and auto use bracing force with brooch",
+    "name": "auto-pet",
+    "author": "HSDN / PsykoDev",
+    "description": "Automatically summons and feeds your pet and auto use bracing force.",
     "options": {
-		"settingsVersion": 1.1,
+        "settingsVersion": 2,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
-		"niceName": "Auto Pet",
+        "cliName": "Auto Pet",
         "guiName": "Auto Pet"
-	},
-    "servers": ["https://raw.githubusercontent.com/PsykoDev/Auto-Pet/master/"],
-	"supportUrl": "https://github.com/PsykoDev/Auto-Pet/issues"
+    },
+    "servers": ["https://raw.githubusercontent.com/tera-private-mods/auto-pet/master/"]
 }

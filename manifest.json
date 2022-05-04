@@ -1,8 +1,11 @@
-{"files": {
-    "index.js":"b0c9ffab383526a5620c6107c164e7d1a6690af7de25e6504a6361bcdd15cf0f",
-    "module.json":"d75013f4fe72329f2048318761e67690332b498e1660790efec488f488295640",
-    "settings_migrator.js":"31528606856b0527c990c4cf108689e39cec5b38ffe24e00d3d6b9ebd241dbb7",
-    "defs/C_REQUEST_SPAWN_SERVANT.1.def": "bf34f8f2287f84ad6f67245f31da6934397d81f03db9c8878e4d3ead89a6c83e",
-    "defs/S_UPDATE_SERVANT_INFO.1.def": "355dac2b462cde6b2c00e6712ffdef4807013605d7b4e3d6b33fd12652f7ccd2",
-    "defs/S_UPDATE_SERVANT_INFO.2.def": "272438d7ec4b5b4849e9fd21c7a911fd6e99bdae908cc8e40341dbcd2b75b350"
-}}
+{
+    "files": {
+        "README.md": "2606240d5a9f86ee5a551d6b2528e996088433024cdb33d4e6fc04ada451d28d",
+        "defs/C_REQUEST_SPAWN_SERVANT.1.def": "bf34f8f2287f84ad6f67245f31da6934397d81f03db9c8878e4d3ead89a6c83e",
+        "defs/C_START_SERVANT_ACTIVE_SKILL.1.def": "4fb53e84df698b8a68e2160eaf818284296409232124b4e518936e1a325b3f5a",
+        "defs/S_UPDATE_SERVANT_INFO.1.def": "355dac2b462cde6b2c00e6712ffdef4807013605d7b4e3d6b33fd12652f7ccd2",
+        "index.js": "1972b10ed01dae1c4ccd451e0a35bb39def420c863f1b8f172baa286bd0f4b9d",
+        "module.json": "3f0f0aaab78385ca4514b9a609df833c41aac4a495a369b91b5c3e6e09d32310",
+        "settings_migrator.js": "ccfc035de244e7ec0e9b1c9b237b76a78a69e8419aba0a182c9a96838b7616ba"
+    }
+}
