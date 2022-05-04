@@ -1,7 +1,7 @@
 # auto-pet
 
 - Automatically summons and feeds your pet.
-- Automatically uses Bracing Force pet buff when using your brooch.
+- Automatically uses Bracing Force pet buff by cooldown.
 
 ## Commands
 
