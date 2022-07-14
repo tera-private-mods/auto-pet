@@ -17,7 +17,10 @@ class Servant {
 
 module.exports = function AutoPet(mod) {
 	mod.dispatch.addDefinition("C_REQUEST_SPAWN_SERVANT", 1, path.join(__dirname, "defs", "C_REQUEST_SPAWN_SERVANT.1.def"));
+	mod.dispatch.addDefinition("C_REQUEST_SPAWN_SERVANT", 2, path.join(__dirname, "defs", "C_REQUEST_SPAWN_SERVANT.2.def"));
 	mod.dispatch.addDefinition("C_START_SERVANT_ACTIVE_SKILL", 1, path.join(__dirname, "defs", "C_START_SERVANT_ACTIVE_SKILL.1.def"));
+	mod.dispatch.addDefinition("C_START_SERVANT_ACTIVE_SKILL", 2, path.join(__dirname, "defs", "C_START_SERVANT_ACTIVE_SKILL.2.def"));
+
 	mod.dispatch.addDefinition("S_UPDATE_SERVANT_INFO", 1, path.join(__dirname, "defs", "S_UPDATE_SERVANT_INFO.1.def"));
 	mod.game.initialize("inventory");
 
@@ -79,7 +82,9 @@ module.exports = function AutoPet(mod) {
 
 	mod.hook("S_REQUEST_DESPAWN_SERVANT", 1, event => {
 		if (event.gameId === petGameId) {
+			petSummoned = false;
 			petGameId = null;
+			newServant = null;
 			mod.clearTimeout(petSkillTimeout);
 		}
 	});
@@ -100,19 +105,12 @@ module.exports = function AutoPet(mod) {
 		}
 	});
 
-	mod.hook("C_START_SERVANT_ACTIVE_SKILL", 1, { "filter": { "fake": null } }, event => {
+	mod.hook("C_START_SERVANT_ACTIVE_SKILL", mod.majorPatchVersion >= 100 ? 2 : 1, { "filter": { "fake": null } }, event => {
 		mod.settings.characters[characterId].bondSkill = event.skill;
 		mod.clearTimeout(petSkillTimeout);
 		const pet = mod.settings.characters[characterId];
 		if (mod.settings.enabled && pet && pet.enabled && pet.bondSkill) {
 			petSkillTimeout = mod.setTimeout(usePetSkill, 10000);
-		}
-	});
-
-	mod.hook("S_REQUEST_DESPAWN_SERVANT", 1, (event) => {
-		if (event.gameId == petGameId) {
-			petSummoned = false;
-			newServant = null;
 		}
 	});
 
@@ -137,7 +135,7 @@ module.exports = function AutoPet(mod) {
 	});
 
 	function summonPet() {
-		mod.send("C_REQUEST_SPAWN_SERVANT", 1, {
+		mod.send("C_REQUEST_SPAWN_SERVANT", mod.majorPatchVersion >= 100 ? 2 : 1, {
 			"servantId": mainServant.ID,
 			"uniqueId": mainServant.UniqueID,
 			"unk": 0
@@ -146,7 +144,7 @@ module.exports = function AutoPet(mod) {
 
 	function usePetSkill() {
 		if (petSummoned) {
-			mod.send("C_START_SERVANT_ACTIVE_SKILL", 1, {
+			mod.send("C_START_SERVANT_ACTIVE_SKILL", mod.majorPatchVersion >= 100 ? 2 : 1, {
 				"gameId": petGameId,
 				"skill": mod.settings.characters[characterId].bondSkill
 			});

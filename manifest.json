@@ -2,9 +2,11 @@
     "files": {
         "README.md": "ae41a6db41d62b10e224e4c0ab3e95e62c0ec7b5eba2a27c8c582ded636ce44f",
         "defs/C_REQUEST_SPAWN_SERVANT.1.def": "bf34f8f2287f84ad6f67245f31da6934397d81f03db9c8878e4d3ead89a6c83e",
+        "defs/C_REQUEST_SPAWN_SERVANT.2.def": "c1c88815d0c97233193ba0d03f11b64bc43aff04cf940931c90e538b1a46b5f5",
         "defs/C_START_SERVANT_ACTIVE_SKILL.1.def": "4fb53e84df698b8a68e2160eaf818284296409232124b4e518936e1a325b3f5a",
+        "defs/C_START_SERVANT_ACTIVE_SKILL.2.def": "6df4a7012bdf207fab09d61cb5e5e1e9a304679a8cdd79365bcfe79a72581e93",
         "defs/S_UPDATE_SERVANT_INFO.1.def": "355dac2b462cde6b2c00e6712ffdef4807013605d7b4e3d6b33fd12652f7ccd2",
-        "index.js": "1972b10ed01dae1c4ccd451e0a35bb39def420c863f1b8f172baa286bd0f4b9d",
+        "index.js": "cbd1bf79ac75c2558ceb0c16f22282bda2ed891a2fbefc363798ffefe1f789ed",
         "module.json": "3f0f0aaab78385ca4514b9a609df833c41aac4a495a369b91b5c3e6e09d32310",
         "settings_migrator.js": "ccfc035de244e7ec0e9b1c9b237b76a78a69e8419aba0a182c9a96838b7616ba"
     }
