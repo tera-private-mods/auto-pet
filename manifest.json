@@ -7,7 +7,7 @@
         "defs/C_START_SERVANT_ACTIVE_SKILL.2.def": "6df4a7012bdf207fab09d61cb5e5e1e9a304679a8cdd79365bcfe79a72581e93",
         "defs/S_START_COOLTIME_SERVANT_SKILL.1.def": "9531917dceb13a00862d2b07e6ff03865b8ba8888cecbdc7c8a5a7707da931ed",
         "defs/S_UPDATE_SERVANT_INFO.1.def": "355dac2b462cde6b2c00e6712ffdef4807013605d7b4e3d6b33fd12652f7ccd2",
-        "index.js": "07182143a0b4595c24a7c984b2ef0f55344a75f9f75747b77760d758159ed6ed",
+        "index.js": "1a077a1a2f90089459fe8713fa4105342f054466f8a6ac9a68242f0dd0d656fd",
         "module.json": "3f0f0aaab78385ca4514b9a609df833c41aac4a495a369b91b5c3e6e09d32310",
         "settings_migrator.js": "ccfc035de244e7ec0e9b1c9b237b76a78a69e8419aba0a182c9a96838b7616ba"
     }
