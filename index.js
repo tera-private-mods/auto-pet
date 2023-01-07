@@ -59,7 +59,7 @@ module.exports = function AutoPet(mod) {
 			mod.settings.characters[characterId].enabled = false;
 			mod.command.message(`Module <font color="#FF0000">Disabled</font> for <font color="#00BFFF">${ mod.settings.characters[characterId].name }</font>`);
 		},
-		"default": () => {
+		"$none": () => {
 			mod.settings.enabled = !mod.settings.enabled;
 			mod.command.message(`Auto Pet is now ${mod.settings.enabled ? "<font color=\"#5dce6a\">Enabled</font>" : "<font color=\"#dc4141\">Disabled</font>"}.`);
 		}
