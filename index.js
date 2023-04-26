@@ -33,6 +33,7 @@ module.exports = function AutoPet(mod) {
 	let newServant = null;
 	let mainServant = null;
 	let petSkillTimeout = null;
+	let petSkillCooldown = false;
 
 	mod.command.add("pet", {
 		"save": () => {
@@ -110,10 +111,14 @@ module.exports = function AutoPet(mod) {
 	});
 
 	mod.hook("S_START_COOLTIME_SERVANT_SKILL", 1, (event) => {
+		petSkillCooldown = true;
 		mod.clearTimeout(petSkillTimeout);
 		const pet = mod.settings.characters[characterId];
 		if (mod.settings.enabled && pet && pet.enabled && pet.bondSkill) {
-			petSkillTimeout = mod.setTimeout(usePetSkill, event.cooltime + 100);
+			petSkillTimeout = mod.setTimeout(() => {
+				petSkillCooldown = false;
+				usePetSkill();
+			}, event.cooltime + 100);
 		}
 	});
 
@@ -153,7 +158,7 @@ module.exports = function AutoPet(mod) {
 	}
 
 	function usePetSkill() {
-		if (petSummoned && mod.game.me.alive) {
+		if (petSummoned && mod.game.me.alive && !petSkillCooldown) {
 			mod.send("C_START_SERVANT_ACTIVE_SKILL", mod.majorPatchVersion >= 100 ? 2 : 1, {
 				"gameId": petGameId,
 				"skill": mod.settings.characters[characterId].bondSkill
