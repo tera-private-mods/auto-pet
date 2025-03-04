@@ -113,9 +113,6 @@ module.exports = function AutoPet(mod) {
 			if (mod.settings.enabled && pet && pet.enabled && pet.bondSkill) {
 				usePetSkill();
 			}
-			if (mod.dispatch.headless) {
-				mod.log(`Pet summoned. Resource gathering skill: ${ability ? (ability.active ? "Active." : "Inactive.") : "Pet without gathering skill!"}`);
-			}
 		}
 	});
 
