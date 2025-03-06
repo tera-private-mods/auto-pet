@@ -36,6 +36,7 @@ module.exports = function AutoPet(mod) {
 	let petSkillTimeout = null;
 	let petSummonInterval = null;
 	let petSkillCooldown = false;
+	let firstSummon = false;
 
 	mod.command.add("pet", {
 		save: () => {
@@ -93,8 +94,8 @@ module.exports = function AutoPet(mod) {
 			petGameId = null;
 			newServant = null;
 			mod.clearTimeout(petSkillTimeout);
-			if (event.despawnType === 1) {
-				summonPet();
+			if (event.despawnType === 0) {
+				firstSummon = true;
 			}
 		}
 	});
@@ -102,6 +103,7 @@ module.exports = function AutoPet(mod) {
 	mod.hook("S_REQUEST_SPAWN_SERVANT", 4, (event) => {
 		if (mod.game.me.is(event.ownerId)) {
 			mod.clearInterval(petSummonInterval);
+			firstSummon = false;
 			newServant = new Servant(event);
 			petSummoned = true;
 			petGameId = event.gameId;
@@ -132,6 +134,13 @@ module.exports = function AutoPet(mod) {
 		}
 	});
 
+	mod.game.on("enter_game", () => {
+		firstSummon = true;
+	});
+	mod.game.on("leave_game", () => {
+		firstSummon = false;
+	});
+
 	mod.game.me.on("resurrect", () => {
 		const pet = mod.settings.characters[characterId];
 		if (mod.settings.enabled && pet && pet.enabled && pet.bondSkill) {
@@ -149,7 +158,9 @@ module.exports = function AutoPet(mod) {
 	});
 
 	mod.hook("S_VISIT_NEW_SECTION", 1, () => {
-		summonPet();
+		if (mod.settings.enabled && firstSummon) {
+			summonPet();
+		}
 	});
 
 	function summonPet() {
