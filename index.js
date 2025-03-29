@@ -74,12 +74,20 @@ module.exports = function AutoPet(mod) {
 
 	mod.hook("S_LOGIN", 14, event => {
 		characterId = `${event.playerId}_${event.serverId}`;
-		if (mod.settings.characters[characterId] == undefined) {
+		if (mod.settings.characters[characterId] === undefined) {
 			mod.settings.characters[characterId] = {
 				name: event.name,
 				enabled: true,
 				bondSkill: null
 			};
+		}
+	});
+
+	mod.hook("S_USER_CHANGE_NAME", 1, event => {
+		if (mod.game.me.is(event.gameId)) {
+			if (mod.settings.characters[characterId] !== undefined) {
+				mod.settings.characters[characterId].name = event.name;
+			}
 		}
 	});
 
