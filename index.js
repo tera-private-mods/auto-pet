@@ -101,7 +101,6 @@ module.exports = function AutoPet(mod) {
 			petSummoned = false;
 			petGameId = null;
 			newServant = null;
-			mod.clearTimeout(petSkillTimeout);
 			if (event.despawnType === 0) {
 				firstSummon = true;
 			}
